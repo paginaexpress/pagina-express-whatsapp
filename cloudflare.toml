@@ -1,0 +1,5 @@
+# Cloudflare Pages Configuration
+name = "pagina-express-whatsapp"
+pages_build_output_dir = "/"
+pages_build_root = ""
+branch = "main"

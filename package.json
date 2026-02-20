@@ -1,0 +1,14 @@
+{
+  "name": "pagina-express-whatsapp",
+  "version": "1.0.0",
+  "description": "Gerador de páginas de clientes escalável para Cloudflare Pages",
+  "main": "index.html",
+  "scripts": {
+    "build": "node generator/build-page.js",
+    "build:test": "node generator/build-page.js",
+    "publish": "node generator/publish.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}

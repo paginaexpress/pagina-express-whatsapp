@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Página Está Pronta! - Pagina Express</title>
+    <style>
+        :root {
+            --primary: #25d366;
+            --bg: #f4f7f6;
+            --text: #333;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .url-box {
+            background: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: monospace;
+            word-break: break-all;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #128c7e;
+            color: white;
+        }
+
+        .btn-copy {
+            background: #333;
+            color: white;
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="icon">🚀</div>
+        <h1>Pronto!</h1>
+        <p>Sua página profissional já está no ar e pronta para converter clientes.</p>
+
+        <div class="url-box" id="urlDisplay">https://...</div>
+
+        <button class="btn btn-copy" id="copyBtn">Copiar Link</button>
+        <a href="#" class="btn btn-whatsapp" id="waBtn">Enviar para meu WhatsApp</a>
+
+        <p class="hint">Dica: Adicione este link na bio do seu Instagram e no seu Google Meu Negócio.</p>
+    </div>
+
+    <script src="delivery.js"></script>
+</body>
+
+</html>

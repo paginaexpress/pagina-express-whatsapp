@@ -1,0 +1,58 @@
+{
+  "saloes": [
+    {
+      "repo": "saloes-express-1",
+      "ativos": 6,
+      "limite": 100
+    }
+  ],
+  "delivery": [
+    {
+      "repo": "delivery-express-1",
+      "ativos": 0,
+      "limite": 100
+    }
+  ],
+  "estetica": [
+    {
+      "repo": "estetica-express-1",
+      "ativos": 0,
+      "limite": 100
+    }
+  ],
+  "academia": [
+    {
+      "repo": "academia-express-1",
+      "ativos": 0,
+      "limite": 100
+    }
+  ],
+  "lojas": [
+    {
+      "repo": "lojas-express-1",
+      "ativos": 0,
+      "limite": 100
+    }
+  ],
+  "servicos": [
+    {
+      "repo": "servicos-express-1",
+      "ativos": 0,
+      "limite": 100
+    }
+  ],
+  "fotografia": [
+    {
+      "repo": "fotografia-express-1",
+      "ativos": 0,
+      "limite": 100
+    }
+  ],
+  "eventos": [
+    {
+      "repo": "eventos-express-1",
+      "ativos": 0,
+      "limite": 100
+    }
+  ]
+}

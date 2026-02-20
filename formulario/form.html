@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Minha Página - Pagina Express</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="form-container">
+        <header>
+            <h1>Pagina Express</h1>
+            <p>Preencha os dados abaixo para gerar sua página profissional.</p>
+        </header>
+
+        <form id="clientForm">
+            <!-- Nicho -->
+            <section class="form-section">
+                <h2>0. Seu Nicho</h2>
+                <div class="form-group">
+                    <label for="nicho">Qual o seu nicho de atuação?</label>
+                    <select id="nicho" name="nicho" required>
+                        <option value="" disabled selected>Selecione seu nicho...</option>
+                        <option value="saloes">Salões de Beleza / Barbearias</option>
+                        <option value="delivery">Delivery / Restaurantes / Comida Rápida</option>
+                        <option value="estetica">Estética / Clínicas de Beleza</option>
+                        <option value="academia">Academias / Personal Trainer / Yoga</option>
+                        <option value="lojas">Lojas de Roupas / Moda / Boutique</option>
+                        <option value="servicos">Serviços de Casa / Reparos / Limpeza</option>
+                        <option value="fotografia">Fotografia / Produção de Conteúdo</option>
+                        <option value="eventos">Eventos / Buffet / Festa</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Dados Básicos -->
+            <section class="form-section">
+                <h2>1. Dados Básicos</h2>
+                <div class="form-group">
+                    <label for="nome_empresa">Nome da Empresa</label>
+                    <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Ex: Barbearia Social"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição Curta (Bio)</label>
+                    <textarea id="descricao" name="descricao" rows="3"
+                        placeholder="Conte brevemente o que sua empresa faz..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp (com DDD)</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: 5511999999999" required>
+                </div>
+                <div class="form-group">
+                    <label for="cor_primaria">Cor Principal da Marca</label>
+                    <input type="color" id="cor_primaria" name="cor_primaria" value="#25d366">
+                </div>
+            </section>
+
+            <!-- Serviços -->
+            <section class="form-section">
+                <h2>2. Seus Serviços (Até 8)</h2>
+                <div id="servicesContainer">
+                    <div class="service-entry">
+                        <input type="text" name="servico[]" placeholder="Nome do serviço">
+                    </div>
+                </div>
+                <button type="button" id="addService" class="btn-secondary">+ Adicionar Serviço</button>
+            </section>
+
+            <!-- Imagens -->
+            <section class="form-section">
+                <h2>3. Galeria (Até 6 Imagens)</h2>
+                <p class="hint">Adicione fotos dos seus serviços ou local.</p>
+                <div class="upload-area" id="uploadArea">
+                    <input type="file" id="imageInput" multiple accept="image/*" hidden>
+                    <span>Clique para selecionar ou arraste fotos</span>
+                </div>
+                <div id="imagePreview" class="image-preview-grid"></div>
+            </section>
+
+            <!-- Redes Sociais -->
+            <section class="form-section">
+                <h2>4. Redes Sociais (Opcional)</h2>
+                <div class="form-group">
+                    <label for="instagram">Link Instagram</label>
+                    <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/seu-perfil">
+                </div>
+                <div class="form-group">
+                    <label for="facebook">Link Facebook</label>
+                    <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/sua-pagina">
+                </div>
+            </section>
+
+            <button type="submit" class="btn-primary" id="submitBtn">GERAR MINHA PÁGINA</button>
+        </form>
+
+        <div id="successMessage" class="hidden">
+            <div class="success-card">
+                <h2>✔ Tudo pronto!</h2>
+                <p>Seus dados foram processados com sucesso.</p>
+                <div id="jsonOutput" class="json-code"></div>
+                <button onclick="location.reload()" class="btn-secondary">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>

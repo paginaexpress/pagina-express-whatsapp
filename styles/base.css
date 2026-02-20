@@ -1,0 +1,172 @@
+/*
+ * Base CSS - Pagina Express WhatsApp
+ * Focado em Mobile-First, Performance e Conversão.
+ */
+
+:root {
+    --primary-color: {{cor_primaria}}; /* Substituída dinamicamente */
+    --text-color: #333;
+    --bg-color: #fafafa;
+    --card-bg: #fff;
+    --whatsapp-color: #25d366;
+    --max-width: 480px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    background: var(--card-bg);
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+/* Header / Hero */
+header {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #000 150%);
+    color: white;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* Common Components */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--whatsapp-color);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-whatsapp:active {
+    transform: scale(0.95);
+}
+
+/* GallerySection */
+.gallery {
+    padding: 20px;
+}
+
+.gallery h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Services */
+.services {
+    padding: 30px 20px;
+    background: #f9f9f9;
+}
+
+.services h2 {
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 15px;
+}
+
+.service-list {
+    list-style: none;
+}
+
+.service-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+}
+
+.service-item::before {
+    content: "✓";
+    color: var(--whatsapp-color);
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    background: #333;
+    color: #eee;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+footer p {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Hide empty elements if variable not filled */
+[data-variable]:empty {
+    display: none !important;
+}

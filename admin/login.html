@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin - Pagina Express</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #25d366;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <h1>Admin Login</h1>
+        <input type="password" id="password" placeholder="Senha de Acesso">
+        <button onclick="login()">Entrar</button>
+    </div>
+    <script>
+        function login() {
+            const pass = document.getElementById('password').value;
+            // Senha inicial simples para a fase de protótipo
+            if (pass === 'admin123') {
+                localStorage.setItem('admin_auth', 'true');
+                window.location.href = 'index.html';
+            } else {
+                alert('Senha incorreta');
+            }
+        }
+    </script>
+</body>
+
+</html>

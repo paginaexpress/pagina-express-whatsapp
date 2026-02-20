@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{nome_empresa}} - Pagina Express</title>
+    <link rel="stylesheet" href="../../styles/base.css">
+    <style>
+        :root { --primary-color: {{cor_primaria}}; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container"></div>
+            <h1>{{nome_empresa}}</h1>
+            <p>{{descricao}}</p>
+            <a href="https://wa.me/{{whatsapp}}?text=Olá, vim pela sua página e quero mais informações." class="btn-whatsapp">Falar no WhatsApp</a>
+        </header>
+
+        <section class="gallery">
+            <div class="gallery-grid">
+                <div class="gallery-item" id="img1">{{imagem_1}}</div>
+                <div class="gallery-item" id="img2">{{imagem_2}}</div>
+                <div class="gallery-item" id="img3">{{imagem_3}}</div>
+                <div class="gallery-item" id="img4">{{imagem_4}}</div>
+                <div class="gallery-item" id="img5">{{imagem_5}}</div>
+                <div class="gallery-item" id="img6">{{imagem_6}}</div>
+            </div>
+        </section>
+
+        <section class="services">
+            <h2>Nossos Serviços</h2>
+            <ul class="service-list">
+                <li class="service-item">{{servico_1}}</li>
+                <li class="service-item">{{servico_2}}</li>
+                <li class="service-item">{{servico_3}}</li>
+                <li class="service-item">{{servico_4}}</li>
+                <li class="service-item">{{servico_5}}</li>
+                <li class="service-item">{{servico_6}}</li>
+                <li class="service-item">{{servico_7}}</li>
+                <li class="service-item">{{servico_8}}</li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h3>Gostou? Fale conosco agora!</h3>
+            <p>Atendimento rápido e personalizado via WhatsApp.</p>
+            <br>
+            <a href="https://wa.me/{{whatsapp}}?text=Olá, vim pela sua página e quero mais informações." class="btn-whatsapp">SOLICITAR ORÇAMENTO</a>
+        </section>
+
+        <footer>
+            <div class="social-links">
+                <a href="{{facebook}}">Facebook</a>
+            </div>
+            <p>© 2026 {{nome_empresa}}. Todos os direitos reservados.</p>
+            <p>Criado por Pagina Express</p>
+        </footer>
+    </div>
+
+    <a href="https://wa.me/{{whatsapp}}?text=Olá, vim pela sua página e quero mais informações." class="wa-fixed" target="_blank" aria-label="WhatsApp">
+        <img src="../../assets/icones/whatsapp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        document.querySelectorAll('.btn-cta').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => btn.style.transform = 'scale(1)', 100);
+            });
+        });
+    </script>
+</body>
+</html>

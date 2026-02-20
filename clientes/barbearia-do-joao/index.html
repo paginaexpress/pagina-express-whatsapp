@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia do João - Pagina Express</title>
+    <link rel="stylesheet" href="../../styles/base.css">
+    <style>
+        :root { --primary-color: #1a1a1a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container"></div>
+            <h1>Barbearia do João</h1>
+            <p>O melhor corte de cabelo e barba da região. Venha conhecer nosso espaço moderno e atendimento vip.</p>
+            <a href="https://wa.me/5511999999999?text=Olá, vim pela sua página e quero mais informações." class="btn-whatsapp">Falar no WhatsApp</a>
+        </header>
+
+        <section class="gallery">
+            <div class="gallery-grid">
+                <div class="gallery-item" id="img1">https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=480</div>
+                <div class="gallery-item" id="img2">https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=480</div>
+                <div class="gallery-item" id="img3"></div>
+                <div class="gallery-item" id="img4"></div>
+                <div class="gallery-item" id="img5"></div>
+                <div class="gallery-item" id="img6"></div>
+            </div>
+        </section>
+
+        <section class="services">
+            <h2>Nossos Serviços</h2>
+            <ul class="service-list">
+                <li class="service-item">Corte de Cabelo Masculino</li>
+                <li class="service-item">Barba Completa com Toalha Quente</li>
+                <li class="service-item">Sobrancelha</li>
+                <li class="service-item">Pigmentação de Barba</li>
+                <li class="service-item">Lavagem Especial</li>
+                <li class="service-item"></li>
+                <li class="service-item"></li>
+                <li class="service-item"></li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h3>Gostou? Fale conosco agora!</h3>
+            <p>Atendimento rápido e personalizado via WhatsApp.</p>
+            <br>
+            <a href="https://wa.me/5511999999999?text=Olá, vim pela sua página e quero mais informações." class="btn-whatsapp">SOLICITAR ORÇAMENTO</a>
+        </section>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://facebook.com/barbeariajoao">Facebook</a>
+            </div>
+            <p>© 2026 Barbearia do João. Todos os direitos reservados.</p>
+            <p>Criado por Pagina Express</p>
+        </footer>
+    </div>
+
+    <a href="https://wa.me/5511999999999?text=Olá, vim pela sua página e quero mais informações." class="wa-fixed" target="_blank" aria-label="WhatsApp">
+        <img src="../../assets/icones/whatsapp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        document.querySelectorAll('.btn-cta').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.style.transform = 'scale(0.95)';
+                setTimeout(() => btn.style.transform = 'scale(1)', 100);
+            });
+        });
+    </script>
+</body>
+</html>

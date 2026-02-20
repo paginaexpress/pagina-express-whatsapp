@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /clientes/
+Disallow: /admin/
+Disallow: /generator/
+Disallow: /data/
+
+Sitemap: https://pagina-express.pages.dev/sitemap.xml
