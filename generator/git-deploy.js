@@ -42,12 +42,16 @@ function gitDeploy(clientName, targetPath = '.') {
 
         // 3. Git Push (Com Autenticação via Token)
         if (TOKEN && USER) {
-            const repoName = path.basename(path.resolve(targetPath));
+            let repoName = path.basename(path.resolve(targetPath));
+            // Mapeamento especial para o diretório raiz "Pagina Express"
+            if (repoName === 'Pagina Express') {
+                repoName = 'pagina-express-whatsapp';
+            }
             const remoteUrl = `https://${TOKEN}@github.com/${USER}/${repoName}.git`;
 
             // Forçar nome da branch para main e dar push
             execSync('git branch -M main', { stdio: 'inherit', cwd: targetPath });
-            execSync(`git push ${remoteUrl} main --force`, { stdio: 'inherit', cwd: targetPath });
+            execSync(`git push "${remoteUrl}" main --force`, { stdio: 'inherit', cwd: targetPath });
         } else {
             execSync('git branch -M main', { stdio: 'inherit', cwd: targetPath });
             execSync('git push origin main', { stdio: 'inherit', cwd: targetPath });
