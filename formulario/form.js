@@ -15,6 +15,16 @@ let imagensBase64 = [];
 const MAX_SERVICES = 8;
 const MAX_IMAGES = 6;
 
+// 0. Formalizar (Primeira letra maiúscula)
+document.querySelectorAll('input[type="text"], textarea').forEach(input => {
+    input.addEventListener('blur', (e) => {
+        let val = e.target.value.trim();
+        if (val.length > 0) {
+            e.target.value = val.charAt(0).toUpperCase() + val.slice(1);
+        }
+    });
+});
+
 // 1. Lógica de adicionar serviços dinamicamente
 addServiceBtn.addEventListener('click', () => {
     const currentServices = servicesContainer.querySelectorAll('.service-entry').length;
@@ -87,19 +97,33 @@ form.addEventListener('submit', (e) => {
     progressBar.style.width = '100%';
 
     const data = generateClientData();
-    console.log('Dados Gerados:', data);
+    const slug = slugify(data.nome_empresa);
 
-    // Feedback Visual
+    // Mapeamento de URL por nicho
+    const baseUrls = {
+        'saloes': 'https://saloes-express-1.pages.dev',
+        'delivery': 'https://delivery-express-1.pages.dev',
+        'estetica': 'https://estetica-express-1.pages.dev'
+    };
+    const nicheUrl = baseUrls[data.nicho] || 'https://pagina-express-whatsapp.pages.dev';
+    const finalUrl = `${nicheUrl}/clientes/${slug}/`;
+
+    // Feedback Visual - Esconder Formulário e Cabeçalho
+    document.querySelector('header').classList.add('hidden');
     document.getElementById('clientForm').classList.add('hidden');
     document.getElementById('successMessage').classList.remove('hidden');
+
+    // Atualizar tela de sucesso
+    document.getElementById('pageUrl').href = finalUrl;
+    document.getElementById('pageUrl').innerText = finalUrl;
     document.getElementById('jsonOutput').innerText = JSON.stringify(data, null, 2);
 
-    // Download automático do JSON
+    // Download automático do JSON (para que o Admin processe se quiser)
     const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `config-${slugify(data.nome_empresa)}.json`;
+    a.download = `config-${slug}.json`;
     a.click();
 });
 
