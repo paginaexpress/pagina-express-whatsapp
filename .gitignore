@@ -1,0 +1,7 @@
+node_modules/
+.env
+saloes-express-1/
+delivery-express-1/
+estetica-express-1/
+temp/
+*.log

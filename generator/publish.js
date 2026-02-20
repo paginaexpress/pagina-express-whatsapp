@@ -9,6 +9,50 @@ const { processClient } = require('./process-client');
 const { gitDeploy } = require('./git-deploy');
 const { generateSitemap } = require('./sitemap');
 
+/**
+ * Espelha os arquivos do cliente e assets necessários para o repositório do nicho
+ */
+function mirrorClientToNicheRepo(client, nichePath) {
+    const sourceDir = path.join(__dirname, `../clientes/${client.slug}`);
+    const targetDir = path.join(nichePath, `clientes/${client.slug}`);
+    const assetsSource = path.join(__dirname, '../assets');
+    const assetsTarget = path.join(nichePath, 'assets');
+    const stylesSource = path.join(__dirname, '../styles');
+    const stylesTarget = path.join(nichePath, 'styles');
+
+    // Cria os diretórios no nicho
+    if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+    if (!fs.existsSync(assetsTarget)) fs.mkdirSync(assetsTarget, { recursive: true });
+    if (!fs.existsSync(stylesTarget)) fs.mkdirSync(stylesTarget, { recursive: true });
+
+    // Copia index.html do cliente
+    fs.copyFileSync(path.join(sourceDir, 'index.html'), path.join(targetDir, 'index.html'));
+
+    // Copia assets e estilos (básico para garantir que a página funcione isolada)
+    // No mundo real usaríamos uma estratégia de CDN ou subpastas
+    copyRecursiveSync(assetsSource, assetsTarget);
+    copyRecursiveSync(stylesSource, stylesTarget);
+
+    console.log(`✔ Arquivos espelhados para o repo: ${path.basename(nichePath)}`);
+}
+
+/**
+ * Utilitário para cópia recursiva
+ */
+function copyRecursiveSync(src, dest) {
+    const exists = fs.existsSync(src);
+    const stats = exists && fs.statSync(src);
+    const isDirectory = exists && stats.isDirectory();
+    if (isDirectory) {
+        if (!fs.existsSync(dest)) fs.mkdirSync(dest);
+        fs.readdirSync(src).forEach(childItemName => {
+            copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
+        });
+    } else {
+        fs.copyFileSync(src, dest);
+    }
+}
+
 async function publish() {
     // 1. Obter caminho do JSON via argumento
     const jsonPath = process.argv[2];
@@ -27,6 +71,11 @@ async function publish() {
     // 3. Atualizar Contador de Nicho e Obter Repo Alvo
     const repoInfo = updateNicheRepoCount(client.nicho);
     const targetPath = repoInfo ? path.join(__dirname, '../', repoInfo.repo) : '.';
+
+    // 3.1 Espelhar arquivos para o repositório do nicho
+    if (repoInfo) {
+        mirrorClientToNicheRepo(client, targetPath);
+    }
 
     // 4. Deploy Git (GitHub -> Cloudflare)
     // Passamos o caminho do repositório do nicho

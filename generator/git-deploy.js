@@ -5,6 +5,10 @@
 
 const { execSync } = require('child_process');
 const path = require('path');
+require('dotenv').config();
+
+const TOKEN = process.env.GITHUB_TOKEN;
+const USER = process.env.GITHUB_USER;
 
 /**
  * Simula um deploy real via Git para Cloudflare Pages
@@ -28,12 +32,26 @@ function gitDeploy(clientName, targetPath = '.') {
         console.log(`✔ Arquivos stageados.`);
 
         // 2. Git Commit
-        const commitMessage = `Novo cliente: ${clientName}`;
-        execSync(`git commit -m "${commitMessage}"`, { stdio: 'inherit', cwd: targetPath });
-        console.log(`✔ Commit realizado: ${commitMessage}`);
+        const commitMessage = `Novo cliente: ${clientName} - ${new Date().toISOString()}`;
+        try {
+            execSync(`git commit -m "${commitMessage}"`, { stdio: 'inherit', cwd: targetPath });
+            console.log(`✔ Commit realizado: ${commitMessage}`);
+        } catch (e) {
+            console.log("✔ Nada para commitar (ou commit já existente).");
+        }
 
-        // 3. Git Push
-        execSync('git push origin main', { stdio: 'inherit', cwd: targetPath });
+        // 3. Git Push (Com Autenticação via Token)
+        if (TOKEN && USER) {
+            const repoName = path.basename(path.resolve(targetPath));
+            const remoteUrl = `https://${TOKEN}@github.com/${USER}/${repoName}.git`;
+
+            // Forçar nome da branch para main e dar push
+            execSync('git branch -M main', { stdio: 'inherit', cwd: targetPath });
+            execSync(`git push ${remoteUrl} main --force`, { stdio: 'inherit', cwd: targetPath });
+        } else {
+            execSync('git branch -M main', { stdio: 'inherit', cwd: targetPath });
+            execSync('git push origin main', { stdio: 'inherit', cwd: targetPath });
+        }
         console.log(`✔ Push realizado com sucesso.`);
 
         console.log(`--- Deploy Finalizado ---`);
