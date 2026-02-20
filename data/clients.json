@@ -7,5 +7,14 @@
     "data_criacao": "2026-02-20T05:00:36.153Z",
     "url_final": "https://pagina-express.pages.dev/clientes/barbearia-do-joao/",
     "status_deploy": "Sucesso"
+  },
+  {
+    "nome_empresa": "Claudia Cabelereira",
+    "nicho": "saloes",
+    "slug": "claudia-cabelereira",
+    "whatsapp": "5511999999999",
+    "data_criacao": "2026-02-20T07:43:41.179Z",
+    "url_final": "https://pagina-express.pages.dev/clientes/claudia-cabelereira/",
+    "status_deploy": "Sucesso"
   }
 ]

@@ -1,0 +1,15 @@
+{
+    "nome_empresa": "Claudia Cabelereira",
+    "nicho": "saloes",
+    "whatsapp": "5511999999999",
+    "descricao": "Especialista em cortes e coloração profissional para realçar sua beleza.",
+    "cor_primaria": "#e84393",
+    "servicos": [
+        "Corte Feminino",
+        "Coloração",
+        "Hidratação",
+        "Escova Profissional"
+    ],
+    "imagens": [],
+    "facebook": "https://facebook.com/claudia"
+}
