@@ -4,136 +4,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurar Minha Página - Pagina Express</title>
+    <title>Gerador Pagina Express - Novo Formulário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="form.css">
 </head>
 
 <body>
-    <div class="progress-bar" id="progressBar"></div>
 
-    <div class="form-container">
-        <header>
+    <header>
+        <div class="container">
             <h1>Pagina Express</h1>
-            <p>Preencha os dados abaixo para gerar sua página profissional.</p>
-        </header>
+            <p>Siga os 6 blocos para criar sua página premium</p>
+        </div>
+    </header>
 
+    <main class="container">
         <form id="clientForm">
-            <!-- Nicho -->
-            <section class="form-section">
-                <h2>0. Seu Nicho</h2>
-                <div class="form-group">
-                    <label for="nicho">Qual o seu nicho de atuação?</label>
-                    <select id="nicho" name="nicho" required>
-                        <option value="" disabled selected>Selecione seu nicho...</option>
-                        <option value="saloes">Salões de Beleza / Barbearias</option>
-                        <option value="delivery">Delivery / Restaurantes / Comida Rápida</option>
-                        <option value="estetica">Estética / Clínicas de Beleza</option>
-                        <option value="academia">Academias / Personal Trainer / Yoga</option>
-                        <option value="lojas">Lojas de Roupas / Moda / Boutique</option>
-                        <option value="servicos">Serviços de Casa / Reparos / Limpeza</option>
-                        <option value="fotografia">Fotografia / Produção de Conteúdo</option>
-                        <option value="eventos">Eventos / Buffet / Festa</option>
-                    </select>
-                </div>
-            </section>
 
-            <!-- Dados Básicos -->
-            <section class="form-section">
-                <h2>1. Dados Básicos</h2>
-                <div class="form-group">
-                    <label for="nome_empresa">Nome da Empresa</label>
-                    <input type="text" id="nome_empresa" name="nome_empresa" placeholder="Ex: Barbearia Social"
-                        required>
+            <!-- BLOCO 1 — IDENTIDADE DO NEGÓCIO -->
+            <fieldset>
+                <legend>1️⃣ Identidade do Negócio</legend>
+                <div class="field-group">
+                    <label>Nome da Empresa</label>
+                    <input type="text" name="nome_empresa" placeholder="Ex: Barbearia do João" required>
                 </div>
-                <div class="form-group">
-                    <label for="descricao">Descrição Curta (Bio)</label>
-                    <textarea id="descricao" name="descricao" rows="3"
-                        placeholder="Conte brevemente o que sua empresa faz..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="whatsapp">WhatsApp (com DDD)</label>
-                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ex: 5511999999999" required>
-                </div>
-                <div class="form-group">
-                    <label for="cor_primaria">Cor Principal da Marca</label>
-                    <input type="color" id="cor_primaria" name="cor_primaria" value="#25d366">
-                </div>
-            </section>
-
-            <!-- Serviços -->
-            <section class="form-section">
-                <h2>2. Seus Serviços (Até 8)</h2>
-                <div id="servicesContainer">
-                    <div class="service-entry">
-                        <input type="text" name="servico[]" placeholder="Nome do serviço">
+                <div class="field-row">
+                    <div class="field-group">
+                        <label>Nicho</label>
+                        <select name="nicho" required>
+                            <option value="saloes">Salões & Barbearias</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="estetica">Estética</option>
+                            <option value="servicos">Outros Serviços</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Público Alvo</label>
+                        <select name="publico_alvo" required>
+                            <option value="Homens Modernos">Homens Modernos</option>
+                            <option value="Mulheres Elegantes">Mulheres Elegantes</option>
+                            <option value="Pessoas que buscam praticidade">Pessoas que buscam praticidade</option>
+                            <option value="Públicos exigentes">Públicos exigentes</option>
+                        </select>
                     </div>
                 </div>
-                <button type="button" id="addService" class="btn-secondary">+ Adicionar Serviço</button>
-            </section>
+                <div class="field-group">
+                    <label>Cidade</label>
+                    <input type="text" name="cidade" placeholder="Ex: São Paulo - SP" required>
+                </div>
+            </fieldset>
 
-            <!-- Imagens -->
-            <section class="form-section">
-                <h2>3. Galeria (Até 6 Imagens)</h2>
-                <p class="hint">Adicione fotos dos seus serviços ou local.</p>
+            <!-- BLOCO 2 — PROMESSA PRINCIPAL -->
+            <fieldset>
+                <legend>2️⃣ Promessa Principal</legend>
+                <div class="field-group">
+                    <label>Serviço Principal</label>
+                    <input type="text" name="servico_principal" placeholder="Ex: Corte de Cabelo e Barba" required>
+                </div>
+                <div class="field-group">
+                    <label>Diferencial (PQ escolher você?)</label>
+                    <select name="diferencial" required>
+                        <option value="Atendimento exclusivo e rápido">Atendimento exclusivo e rápido</option>
+                        <option value="Qualidade premium com preço justo">Qualidade premium com preço justo</option>
+                        <option value="Ambiente climatizado e confortável">Ambiente climatizado e confortável</option>
+                        <option value="Profissionais com 10 anos de experiência">Profissionais com 10 anos de
+                            experiência</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label>Lista de Serviços (até 8)</label>
+                    <div id="servicesContainer">
+                        <input type="text" name="servico[]" placeholder="Serviço 1">
+                    </div>
+                    <button type="button" id="addService" class="btn-secondary">+ Adicionar Serviço</button>
+                </div>
+            </fieldset>
+
+            <!-- BLOCO 3 — CONTATO -->
+            <fieldset>
+                <legend>3️⃣ Contato</legend>
+                <div class="field-group">
+                    <label>WhatsApp (com DDD)</label>
+                    <input type="text" name="whatsapp" placeholder="Ex: 11999999999" required>
+                </div>
+                <div class="field-row">
+                    <div class="field-group">
+                        <label>Instagram (User ou Link)</label>
+                        <input type="text" name="instagram" placeholder="@seuuser">
+                    </div>
+                    <div class="field-group">
+                        <label>Facebook (Link)</label>
+                        <input type="text" name="facebook" placeholder="facebook.com/suapagina">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- BLOCO 4 — IDENTIDADE VISUAL -->
+            <fieldset>
+                <legend>4️⃣ Identidade Visual</legend>
+                <div class="field-group">
+                    <label>Upload Logo</label>
+                    <input type="file" id="logoInput" accept="image/*">
+                    <div id="logoPreview" class="logo-preview-box"></div>
+                </div>
+                <div class="field-group">
+                    <label>Escolha a Cor Principal</label>
+                    <input type="color" name="cor_manual" value="#1a73e8" id="colorPicker">
+                </div>
+            </fieldset>
+
+            <!-- BLOCO 5 — MÍDIA -->
+            <fieldset>
+                <legend>5️⃣ Galeria de Fotos</legend>
                 <div class="upload-area" id="uploadArea">
-                    <input type="file" id="imageInput" multiple accept="image/*" hidden>
-                    <span>Clique para selecionar ou arraste fotos</span>
+                    <p>Clique ou arraste até 6 fotos dos seus serviços</p>
+                    <input type="file" id="imagesInput" multiple accept="image/*" class="hidden">
+                    <div id="imagesPreview" class="images-preview-grid"></div>
                 </div>
-                <div id="imagePreview" class="image-preview-grid"></div>
-            </section>
+            </fieldset>
 
-            <!-- Redes Sociais -->
-            <section class="form-section">
-                <h2>4. Redes Sociais (Opcional)</h2>
-                <div class="form-group">
-                    <label for="instagram">Link Instagram</label>
-                    <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/seu-perfil">
-                </div>
-                <div class="form-group">
-                    <label for="facebook">Link Facebook</label>
-                    <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/sua-pagina">
-                </div>
-            </section>
+            <!-- BLOCO 6 — BOTÃO FINAL -->
+            <div class="actions">
+                <button type="button" id="btnPreview" class="btn-preview">VISUALIZAR MINHA PÁGINA</button>
+                <button type="submit" id="btnPublish" class="btn-publish">PUBLICAR AGORA</button>
+            </div>
 
-            <button type="submit" class="btn-primary" id="submitBtn">GERAR MINHA PÁGINA</button>
         </form>
 
-        <div id="successMessage" class="hidden">
-            <div class="success-card">
-                <div class="success-icon" style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;">✔</div>
-                <h2>Sua Página foi Finalizada! ✨</h2>
-                <p>O link da sua página está abaixo, clique e veja.</p>
-                <p>As instruções de uso e o link também foram enviados para seu e-mail e WhatsApp cadastrados.</p>
-
-                <div class="url-box"
-                    style="background: #e9fbec; padding: 15px; border-radius: 8px; margin: 25px 0; border: 1px solid var(--primary);">
-                    <small style="display: block; margin-bottom: 5px; opacity: 0.7;">LINK DA SUA PÁGINA:</small>
-                    <a id="pageUrl" href="#" target="_blank"
-                        style="color: var(--primary); font-weight: bold; text-decoration: none; word-break: break-all;"></a>
-                </div>
-
-                <div class="instructions-box"
-                    style="text-align: left; background: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.9rem;">
-                    <h3 style="margin-top: 0; font-size: 1rem;">Próximos Passos:</h3>
-                    <ul style="padding-left: 20px; line-height: 1.6;">
-                        <li>Abra o link acima para verificar seu site.</li>
-                        <li>Compartilhe este link na bio do seu Instagram.</li>
-                        <li>Envie este link para seus clientes no WhatsApp.</li>
-                        <li>Qualquer alteração pode ser feita enviando o arquivo baixado para o suporte.</li>
-                    </ul>
-                </div>
-
-                <button onclick="document.getElementById('jsonOutput').classList.toggle('hidden')" class="btn-secondary"
-                    style="margin-top: 20px;">Ver Dados Técnicos (JSON)</button>
-                <div id="jsonOutput" class="json-code hidden"></div>
-
-                <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
-                <button onclick="location.reload()" class="btn-secondary">Gerar Outra Página</button>
+        <!-- Preview Modal/Area -->
+        <div id="previewModal" class="modal hidden">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Pré-visualização</h2>
+                    <button id="closePreview">Fechar</button>
+                </header>
+                <iframe id="previewFrame"></iframe>
             </div>
         </div>
-    </div>
 
+    </main>
+
+    <!-- Scripts Core -->
+    <script src="../generator/core/normalization.js"></script>
+    <script src="../generator/core/copy-generator.js"></script>
+    <script src="../generator/core/color-generator.js"></script>
+    <script src="../generator/core/json-generator.js"></script>
+    <script src="../generator/core/builder.js"></script>
     <script src="form.js"></script>
+
 </body>
 
 </html>
