@@ -1,0 +1,16 @@
+{
+  "name": "pagina-express-whatsapp",
+  "source": {
+    "type": "github",
+    "config": {
+      "owner": "paginaexpress",
+      "repo_name": "pagina-express-whatsapp",
+      "production_branch": "main"
+    }
+  },
+  "build_config": {
+    "build_command": "",
+    "destination_dir": "",
+    "root_dir": ""
+  }
+}
